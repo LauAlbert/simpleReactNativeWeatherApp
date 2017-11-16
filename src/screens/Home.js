@@ -6,6 +6,7 @@ import SelectedTop from '../components/SelectedTop';
 import WeatherScroller from '../components/WeatherScroller';
 import FactSheet from '../components/FactSheet';
 import { fetchTodayWeather, fetchFiveWeather } from '../actions';
+import { getWeatherImage } from '../actions/weather_icon';
 
 const width = Dimensions.get('window').width;
 
@@ -28,8 +29,10 @@ class Home extends Component {
             return <SelectedTop />
         } else {
             return <SelectedTop 
-                        weather={this.props.selectedDay.weather[0].main}
+                        weatherImage={getWeatherImage(this.props.selectedDay.weather[0].id)}
+                        weatherText={this.props.selectedDay.weather[0].main}
                         location={this.props.selectedDay.name}
+                        temperature={Math.round(this.props.selectedDay.main.temp)}
                     />
         }
     }

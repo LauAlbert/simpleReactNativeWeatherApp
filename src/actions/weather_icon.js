@@ -1,4 +1,6 @@
-export const weatherIcon = [
+import _ from 'lodash';
+
+const weatherIcon = [
     {id: 2, image:'http://openweathermap.org/img/w/11d.png'},
     {id: 3, image:'http://openweathermap.org/img/w/09d.png'},
     {id: 5, image:'http://openweathermap.org/img/w/10d.png'},
@@ -11,6 +13,12 @@ export const weatherIcon = [
     {id: 804, image:'http://openweathermap.org/img/w/04d.png'}
 ]
 
-export const getIcon = (number) => {
-    
+export const getWeatherImage = (number) => {
+    const firstDigit = String(number)[0];
+    console.log(firstDigit)
+    if(number==8) {
+        return (_.filter(weatherIcon,{ id: parseInt(number) })[0].image);
+    } else {
+        return (_.filter(weatherIcon,{ id: parseInt(firstDigit) })[0].image);
+    }
 }

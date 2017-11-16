@@ -5,18 +5,18 @@ import { Avatar } from 'react-native-elements';
 class SelectedTop extends Component {
 
     render() {
-        const {weather, date, location, temperature} = this.props;
+        const {weatherImage, weatherText, date, location, temperature} = this.props;
         return (
             <View style={styles.viewStyle}>
                 <View style={styles.imageViewStyle}>
                     <Avatar
                         large
                         rounded
-                        source={{uri: "http://openweathermap.org/img/w/10d.png"}}
+                        source={{uri: weatherImage}}
                         onPress={() => console.log("Works!")}
                         activeOpacity={0.7}
                     />
-                    <Text style={{color: 'white'}}>{weather}</Text>
+                    <Text style={{color: 'white'}}>{weatherText}</Text>
                 </View>
                 <View style={styles.descriptionViewStyle}>
                     <View style={{flex: 1}}>
@@ -35,7 +35,7 @@ class SelectedTop extends Component {
     }
 }
 
-SelectedTop.defaultProps = {date: '', weather: '', location: '', temperature: ''};
+SelectedTop.defaultProps = {weatherImage: null, weatherText: '', date: '', location: '', temperature: ''};
 
 const styles = {
     viewStyle: {
