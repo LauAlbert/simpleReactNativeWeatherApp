@@ -13,6 +13,7 @@ const styles = {
     containerStyle: {
         flex: 1,
         margin: 10
+        
     }
 }
 
