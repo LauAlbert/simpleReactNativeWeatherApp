@@ -41,7 +41,6 @@ class Home extends Component {
         return (
             <View style={{flex: 1}}>
                 <SearchBar 
-                    showLoadingIcon
                     onSubmitEditing={this.fetchTodayWeather.bind(this)}
                     value={this.state.searchValue}
                     onChangeText={(searchValue) => this.setState({searchValue})}
