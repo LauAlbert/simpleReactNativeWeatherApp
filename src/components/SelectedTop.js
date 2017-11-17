@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import { Avatar } from 'react-native-elements';
 
 class SelectedTop extends Component {
+    
 
     render() {
         const {weatherImage, weatherText, date, location, temperature} = this.props;
@@ -13,14 +14,13 @@ class SelectedTop extends Component {
                         large
                         rounded
                         source={{uri: weatherImage}}
-                        onPress={() => console.log("Works!")}
                         activeOpacity={0.7}
                     />
                     <Text style={{color: 'white'}}>{weatherText}</Text>
                 </View>
                 <View style={styles.descriptionViewStyle}>
                     <View style={{flex: 1}}>
-                    <Text numberOfLines={1} style={{fontSize: 30, color: 'white'}}>{date}</Text>
+                    <Text numberOfLines={1} style={{fontSize: 20, color: 'white'}}>{date}</Text>
                     </View>
                     <View style={{flex: 1, justifyContent:'flex-end', alignItems: 'flex-end'}}>
                         <Text numberOfLines={1} style={{fontSize: 25, color: 'white'}}>{location}</Text>

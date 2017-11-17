@@ -4,7 +4,9 @@ import { API_KEY } from './api_key';
 
 import {
     FETCH_TODAY,
-    FETHC_FIVE
+    FETCH_FIVE,
+    SWITCH_LIST,
+    SELECT_DAY
 } from './types';
 
 const ROOT_URL_TODAY = 'https://api.openweathermap.org/data/2.5/weather?';
@@ -20,7 +22,7 @@ export const fetchTodayWeather = (city) => async (dispatch) => {
         const url = `${ROOT_URL_TODAY}${qs.stringify({...REQUEST_QUERY, q: city})}`;
         let { data } = await axios.get(url)
         dispatch({type: FETCH_TODAY, payload: data});
-        // console.log(data);
+        //console.log(data);
     } catch(e) {
         console.error(e)
     }
@@ -30,9 +32,17 @@ export const fetchFiveWeather = (city) => async (dispatch) => {
     try {
         const url = `${ROOT_URL_FIVE}${qs.stringify({...REQUEST_QUERY, q: city})}`;
         let { data } = await axios.get(url)
-        dispatch({type: FETCH_FIVE, payload: data});
+        dispatch({type: FETCH_FIVE, payload: data.list});
     } catch(e) {
         console.error(e)
     }
+}
+
+export const switchList = (listName) => {
+    return {type: SWITCH_LIST, payload: listName};
+}
+
+export const selectDay = (index) => {
+    return {type: SELECT_DAY, payload: index};
 }
 

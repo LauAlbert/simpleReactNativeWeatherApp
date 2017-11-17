@@ -15,8 +15,7 @@ const weatherIcon = [
 
 export const getWeatherImage = (number) => {
     const firstDigit = String(number)[0];
-    console.log(firstDigit)
-    if(number==8) {
+    if(firstDigit==8) {
         return (_.filter(weatherIcon,{ id: parseInt(number) })[0].image);
     } else {
         return (_.filter(weatherIcon,{ id: parseInt(firstDigit) })[0].image);
